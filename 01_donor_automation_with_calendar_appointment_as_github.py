@@ -27,9 +27,9 @@ if not all([SURNAME, DONOR_ID, RESERVATION_EMAIL, CALENDAR_ID, SERVICE_ACCOUNT_J
 if not re.match(r"[^@]+@[^@]+\.[^@]+", RESERVATION_EMAIL):
     raise Exception("Invalid RESERVATION_EMAIL format")
 
-# Create temporary file for service account JSON
-with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as temp_file:
-    json.dump(json.loads(SERVICE_ACCOUNT_JSON), temp_file)
+# Create temporary file for service account JSON from base64
+with tempfile.NamedTemporaryFile(mode='wb', suffix='.json', delete=False) as temp_file:
+    temp_file.write(base64.b64decode(SERVICE_ACCOUNT_JSON))
     SERVICE_ACCOUNT_FILE = temp_file.name
 
 # Google Calendar setup
