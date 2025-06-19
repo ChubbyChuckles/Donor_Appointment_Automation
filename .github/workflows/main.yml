@@ -32,4 +32,4 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           APPOINTMENT_LOCATION: ${{ secrets.APPOINTMENT_LOCATION }}
         run: |
-          01_donor_automation_with_calendar_appointment_as_github.py
+          python 01_donor_automation_with_calendar_appointment_as_github.py
