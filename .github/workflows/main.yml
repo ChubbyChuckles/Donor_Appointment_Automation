@@ -8,7 +8,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '0 20 * * 1,4' # Run at 17:00 UTC on Monday (1) and Thursday (4)
+    - cron: '0 20 * * 1,4' # Run at 20:00 UTC on Monday (1) and Thursday (4)
 
 jobs:
   book-appointment:
