@@ -1,14 +1,9 @@
 name: Book Plasma Donation Appointment
 
 on:
-  workflow_dispatch:
-    inputs:
-      skip_booking:
-        description: 'Skip actual booking submission (true/false)'
-        required: false
-        default: 'false'
+  workflow_dispatch: # Manual trigger
   schedule:
-    - cron: '0 20 * * 1,4' # Run at 20:00 UTC on Monday (1) and Thursday (4)
+    - cron: '0 20 * * 1,4' # Run at 17:00 UTC on Monday (1) and Thursday (4)
 
 jobs:
   book-appointment:
@@ -36,4 +31,4 @@ jobs:
           GOOGLE_CALENDAR_ID: ${{ secrets.GOOGLE_CALENDAR_ID }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
-          01_donor_automation_with_calendar_appointment_as_github.py ${{ github.event.inputs.skip_booking == 'false' && '--skip-booking' || '' }}
+          01_donor_automation_with_calendar_appointment_as_github.py
