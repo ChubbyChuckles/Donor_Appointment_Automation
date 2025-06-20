@@ -285,9 +285,11 @@ try:
     max_new_bookings = min(max_new_bookings_annual, max_new_bookings_future)
     if max_new_bookings <= 0:
         if plasma_count >= 60:
-            raise ValueError(f"Cannot book: Already have {plasma_count} plasma appointments in past 365 days, exceeding limit of 60")
+            print(f"Cannot book: Already have {plasma_count} plasma appointments in past 365 days, exceeding limit of 60")
+            exit(0)
         else:
-            raise ValueError(f"Cannot book: Already have {future_count} future appointments, exceeding limit of 5 active bookings")
+            print(f"Cannot book: Already have {future_count} future appointments, exceeding limit of 5 active bookings")
+            exit(0)
     print(f"Proceeding with up to {max_new_bookings} new bookings. Past 365-day appointments: {plasma_count}/60, Future appointments: {future_count}/5")
 
     # Step 1: GET login page
