@@ -189,7 +189,7 @@ def parse_time(time_str):
 def get_target_dates():
     """Generate target dates for 8 weeks between May 1 and August 31, 2025, after current date, alternating 2 and 1 appointments per week."""
     target_dates = []
-    year = datetime.datetime.now().year
+    year = datetime.now().year
     now = datetime.now()
     may_start = datetime(year, 5, 1)
     aug_end = datetime(year, 8, 31)
